@@ -12,4 +12,4 @@
 # Modify default IP
 sed -i "s/192.168.6.1/192.168.6.1/g" package/base-files/files/bin/config_generate
 sed -i "s/hostname='ImmortalWrt'/hostname='RAX3000Me'/g" package/base-files/files/bin/config_generate
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='QiYueYi $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='a1303045940 $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
