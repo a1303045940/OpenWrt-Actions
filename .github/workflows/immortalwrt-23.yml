@@ -33,7 +33,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: 检查项目分支
@@ -166,16 +166,4 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-    - name: Telegram 通知
-      if: always() && !cancelled()
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHATID: ${{ secrets.TELEGRAM_CHATID }}
-      run: |
-        duration=$((($(date +%s)-${{ env.START_DATE }})/60)) && time=$((duration/60))小时$((duration%60))分钟
-        if [ "${{ steps.compile.outputs.status }}" == 'success' ]; then
-          content="🎉immortalwrt-23固件编译成功🎉%0A固件版本：${{ env.FIRMWARE_VERSION }}%0A编译用时：${time}"
-        else
-          content="❌immortalwrt-23固件编译失败❌%0A固件版本：${{ env.FIRMWARE_VERSION }}%0A编译用时：${time}"
-        fi
-        curl "https://api.telegram.org/bot${{ env.TELEGRAM_BOT_TOKEN }}/sendMessage?chat_id=${{ env.TELEGRAM_CHATID }}&text=${content}"
+  
