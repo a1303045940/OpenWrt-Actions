@@ -27,25 +27,26 @@ git clone --depth 1 -b main https://github.com/EasyTier/luci-app-easytier.git lu
 mv luci-app-easytier/easytier package/easytier
 mv luci-app-easytier/luci-app-easytier package/luci-app-easytier
 rm -rf luci-app-easytier
-##添加自己的插件库
-git clone https://github.com/linkease/istore.git package/istore
-# sed -i '$a src-git mzwrt_package https://github.com/mzwrt/mzwrt_package' feeds.conf.default
-# git clone --depth 1 -b main https://github.com/mzwrt/mzwrt_package package/openwrt-packages
 # 科学上网插件
 rm -rf {*passwall*,*bypass*,*homeproxy*,*mihomo*}
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
-git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-# 添加额外插件
-#git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
-git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
-git clone --depth=1 https://github.com/destan19/OpenAppFilter package/OpenAppFilter
-git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
+##添加自己的插件库
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+# git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+# git clone https://github.com/firkerword/luci-app-mosdns.git package/mosdns
+# git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+git clone https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
+git clone https://github.com/firkerword/luci-app-lucky.git package/lucky
+# git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
+chmod 755 ./package/lucky/luci-app-lucky/root/usr/bin/luckyarch
+git clone https://github.com/linkease/istore.git package/istore
+# sed -i '$a src-git mzwrt_package https://github.com/mzwrt/mzwrt_package' feeds.conf.default
+# git clone --depth 1 -b main https://github.com/mzwrt/mzwrt_package package/openwrt-packages
 
