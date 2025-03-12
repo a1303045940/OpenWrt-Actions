@@ -33,6 +33,7 @@ rm -rf luci-app-easytier
 # 科学上网插件
 rm -rf {*passwall*,*bypass*,*homeproxy*,*mihomo*}
 rm -rf feeds/packages/lang/golang
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
