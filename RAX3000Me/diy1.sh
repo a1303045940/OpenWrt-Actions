@@ -28,25 +28,31 @@ mv luci-app-easytier/easytier package/easytier
 mv luci-app-easytier/luci-app-easytier package/luci-app-easytier
 rm -rf luci-app-easytier
 # 科学上网插件
-rm -rf {*passwall*,*bypass*,*homeproxy*,*mihomo*}
-rm -rf feeds/packages/lang/golang
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+# rm -rf {*passwall*,*bypass*,*homeproxy*,*mihomo*}
+# rm -rf feeds/packages/lang/golang
+# rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+
 ##添加自己的插件库
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages.git luci-app
+#mv luci-app/openwrt-passwall package/openwrt-passwall
+#rm -rf openwrt-passwall
+# 添加新的 feed 源并安装 luci-app-store
+echo >> feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+./scripts/feeds update istore
+./scripts/feeds install -d y -p istore luci-app-store
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 # git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 # git clone https://github.com/firkerword/luci-app-mosdns.git package/mosdns
 # git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-git clone https://github.com/sbwml/luci-app-mosdns.git package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
-git clone https://github.com/firkerword/luci-app-lucky.git package/lucky
+
+#git clone https://github.com/sbwml/luci-app-mosdns.git package/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+#git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
+#git clone https://github.com/firkerword/luci-app-lucky.git package/lucky
 # git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
-chmod 755 ./package/lucky/luci-app-lucky/root/usr/bin/luckyarch
-git clone https://github.com/linkease/istore.git package/istore
+#chmod 755 ./package/lucky/luci-app-lucky/root/usr/bin/luckyarch
+#git clone https://github.com/linkease/istore.git package/istore
 # sed -i '$a src-git mzwrt_package https://github.com/mzwrt/mzwrt_package' feeds.conf.default
 # git clone --depth 1 -b main https://github.com/mzwrt/mzwrt_package package/openwrt-packages
 
