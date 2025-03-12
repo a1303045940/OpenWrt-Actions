@@ -28,6 +28,7 @@ mv luci-app-easytier/easytier package/easytier
 mv luci-app-easytier/luci-app-easytier package/luci-app-easytier
 rm -rf luci-app-easytier
 ##添加自己的插件库
+git clone https://github.com/linkease/istore.git package/istore
 # sed -i '$a src-git mzwrt_package https://github.com/mzwrt/mzwrt_package' feeds.conf.default
 # git clone --depth 1 -b main https://github.com/mzwrt/mzwrt_package package/openwrt-packages
 # 科学上网插件
