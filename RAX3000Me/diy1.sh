@@ -35,9 +35,14 @@ rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftabl
 # 自定义软件源
 git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-packages
 ##添加自己的插件库
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
-git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
-
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+# 科学上网插件
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
+# git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 #git clone https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 #git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
