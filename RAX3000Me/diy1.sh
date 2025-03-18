@@ -38,7 +38,7 @@ git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packag
 mv luci-app/openwrt-passwall package/openwrt-passwall
 rm -rf openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
-# git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 
 #git clone https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
