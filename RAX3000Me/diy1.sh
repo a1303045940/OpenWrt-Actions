@@ -35,9 +35,6 @@ rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftabl
 # 自定义软件源
 git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-packages
 ##添加自己的插件库
-git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages.git luci-app
-mv luci-app/openwrt-passwall package/openwrt-passwall
-rm -rf openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 
