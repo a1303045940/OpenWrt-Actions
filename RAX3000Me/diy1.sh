@@ -32,7 +32,8 @@ rm -rf luci-app-easytier
 rm -rf {*passwall*,*bypass*,*homeproxy*,*mihomo*}
 # rm -rf feeds/packages/lang/golang
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
-
+# 自定义软件源
+git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-packages
 ##添加自己的插件库
 git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages.git luci-app
 mv luci-app/openwrt-passwall package/openwrt-passwall
