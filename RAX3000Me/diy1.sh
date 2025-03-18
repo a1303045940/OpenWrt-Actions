@@ -39,11 +39,6 @@ rm -rf luci-app-easytier
 #git clone --depth 1 -b main https://github.com/xiaorouji/openwrt-passwall-packages.git luci-app
 #mv luci-app/openwrt-passwall package/openwrt-passwall
 #rm -rf openwrt-passwall
-# 添加新的 feed 源并安装 luci-app-store
-echo >> feeds.conf.default
-echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
-./scripts/feeds update istore
-./scripts/feeds install -d y -p istore luci-app-store
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 # git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 # git clone https://github.com/firkerword/luci-app-mosdns.git package/mosdns
